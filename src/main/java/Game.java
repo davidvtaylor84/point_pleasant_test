@@ -30,7 +30,7 @@ public class Game  extends JFrame{
     JButton startButton;
 
     JButton continueButton;
-    JButton choice1, choice2, choice3, choice4;
+    JButton choice1, choice2, choice3, choice4, choice5;
     JTextArea mainTextArea;
     JTextArea locationTextArea;
 
@@ -39,6 +39,7 @@ public class Game  extends JFrame{
 
 
     titleScreenHandler titleScreenHandler = new titleScreenHandler();
+    ChoiceHandler choiceHandler = new ChoiceHandler();
 
     Font font = new Font("Old Century", Font.PLAIN, 100);
     Font font2 = new Font("Old Centruy", Font.PLAIN, 20);
@@ -113,7 +114,7 @@ public class Game  extends JFrame{
         mainTextPanel.setBackground(Color.BLUE);
         container.add(mainTextPanel);
 
-        mainTextArea = new JTextArea("Here we go baby. This game is going top be awesome my g.");
+        mainTextArea = new JTextArea();
         mainTextArea.setBounds(330, 490, 750, 140);
         mainTextArea.setBackground(new Color(0,0,0,0));
         mainTextArea.setForeground(Color.WHITE);
@@ -135,32 +136,56 @@ public class Game  extends JFrame{
         container.add(choiceButtonPanel, BorderLayout.LINE_END);
         choiceButtonPanel.setBounds(1100, 80, 320, 300);
         choiceButtonPanel.setBackground(Color.BLACK);
-        choiceButtonPanel.setLayout(new GridLayout(4,1));
+        choiceButtonPanel.setLayout(new GridLayout(5,1));
 
         choice1 = new JButton("choice 1");
         choice1.setBackground(Color.BLACK);
         choice1.setForeground(Color.BLACK);
         choice1.setFont(font2);
+        choice1.addActionListener(choiceHandler);
+        choice1.setActionCommand("c1");
 
         choice2 = new JButton("choice 2");
         choice2.setBackground(Color.BLACK);
         choice2.setForeground(Color.BLACK);
         choice2.setFont(font2);
+        choice2.addActionListener(choiceHandler);
+        choice2.setActionCommand("c2");
+
+
 
         choice3 = new JButton("choice 3");
         choice3.setBackground(Color.BLACK);
         choice3.setForeground(Color.BLACK);
         choice3.setFont(font2);
+        choice3.addActionListener(choiceHandler);
+        choice3.setActionCommand("c3");
+
+
 
         choice4 = new JButton("choice 4");
         choice4.setBackground(Color.BLACK);
         choice4.setForeground(Color.BLACK);
         choice4.setFont(font2);
+        choice4.addActionListener(choiceHandler);
+        choice4.setActionCommand("c4");
+
+
+
+        choice5 = new JButton("choice 5");
+        choice5.setBackground(Color.BLACK);
+        choice5.setForeground(Color.BLACK);
+        choice5.setFont(font2);
+        choice5.addActionListener(choiceHandler);
+        choice5.setActionCommand("c5");
+
+
 
         choiceButtonPanel.add(choice1);
         choiceButtonPanel.add(choice2);
         choiceButtonPanel.add(choice3);
         choiceButtonPanel.add(choice4);
+        choiceButtonPanel.add(choice5);
 
         playerStatsPanel = new JPanel();
         playerStatsPanel.setBounds(100, 650, 1220, 50);
@@ -217,9 +242,39 @@ public class Game  extends JFrame{
 
     }
 
+//    Listens for the click of start button. Calls createGameScreen
     public class titleScreenHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            createGameScreen();
+        public void actionPerformed(ActionEvent e){createGameScreen();
+            enteringTheTown();
+        }
+    }
+
+//    call functions like these at the start of each.
+    public void enteringTheTown(){
+        String position = "enteringTheTown";
+        mainTextArea.setText("You pull in and park in a small spot off the town square. A few people meander around doing early morning errands. There is a stillness that at first hearing seems normal but then you realise that there are no children in this town. A man with a hat is eating chips. What do you do?");
+        choice1.setText("Talk to the man");
+        choice2.setText("Go to post office");
+        choice3.setText("Meet your mother");
+        choice4.setText("Kiss a dog on the lips");
+        choice5.setText("");
+    }
+
+//    set stats labels using these:
+//    label.setText(Integer.toString(intValue));
+
+    public void talkMan(){
+        mainTextArea.setText("Man: What do you want you lunatic?");
+    }
+
+//    Listens to button choices
+    public class ChoiceHandler implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            String choice = event.getActionCommand();
+            if(choice.equals("c1")){
+                talkMan();
+            }
         }
     }
 

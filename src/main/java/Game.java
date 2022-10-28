@@ -1,7 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 import static javax.swing.SwingConstants.CENTER;
@@ -18,6 +22,7 @@ public class Game  extends JFrame{
     JPanel locationPanel;
 
     JPanel inventoryPanel;
+    JPanel playerStatsPanel;
     JLabel titleNameLabel;
 
     JLabel pictureLabel;
@@ -25,8 +30,12 @@ public class Game  extends JFrame{
     JButton startButton;
 
     JButton continueButton;
+    JButton choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     JTextArea locationTextArea;
+
+    JLabel backgroundImageLabel;
+    JPanel backgroundImagePanel;
 
 
     titleScreenHandler titleScreenHandler = new titleScreenHandler();
@@ -79,9 +88,8 @@ public class Game  extends JFrame{
 
         window.setVisible(true);
 
-
-
     }
+
 
     public void createGameScreen(){
         titleNamePanel.setVisible(false);
@@ -100,20 +108,20 @@ public class Game  extends JFrame{
         container.add(locationPanel, BorderLayout.PAGE_START);
 
         mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(330, 550, 750, 130);
+        mainTextPanel.setBounds(330, 490, 750, 140);
         mainTextPanel.setBackground(Color.BLUE);
         container.add(mainTextPanel);
 
         mainTextArea = new JTextArea("Here we go baby. This game is going top be awesome my g.");
-        mainTextArea.setBounds(330, 550, 700, 130);
-        mainTextArea.setBackground(Color.BLACK);
+        mainTextArea.setBounds(330, 490, 750, 140);
+        mainTextArea.setBackground(new Color(0,0,0,0));
         mainTextArea.setForeground(Color.WHITE);
         mainTextArea.setFont(font2);
         mainTextArea.setLineWrap(true);
         mainTextPanel.add(mainTextArea);
 
         imagePanel = new JPanel();
-        imagePanel.setBounds(330, 80, 750, 450);
+        imagePanel.setBounds(330, 80, 750, 400);
         imagePanel.setBackground(Color.CYAN);
         container.add(imagePanel);
 
@@ -125,7 +133,39 @@ public class Game  extends JFrame{
         choiceButtonPanel = new JPanel();
         container.add(choiceButtonPanel, BorderLayout.LINE_END);
         choiceButtonPanel.setBounds(1100, 80, 320, 300);
-        choiceButtonPanel.setBackground(Color.RED);
+        choiceButtonPanel.setBackground(Color.BLACK);
+        choiceButtonPanel.setLayout(new GridLayout(4,1));
+
+        choice1 = new JButton("choice 1");
+        choice1.setBackground(Color.BLACK);
+        choice1.setForeground(Color.BLACK);
+        choice1.setFont(font2);
+
+        choice2 = new JButton("choice 2");
+        choice2.setBackground(Color.BLACK);
+        choice2.setForeground(Color.BLACK);
+        choice2.setFont(font2);
+
+        choice3 = new JButton("choice 3");
+        choice3.setBackground(Color.BLACK);
+        choice3.setForeground(Color.BLACK);
+        choice3.setFont(font2);
+
+        choice4 = new JButton("choice 4");
+        choice4.setBackground(Color.BLACK);
+        choice4.setForeground(Color.BLACK);
+        choice4.setFont(font2);
+
+        choiceButtonPanel.add(choice1);
+        choiceButtonPanel.add(choice2);
+        choiceButtonPanel.add(choice3);
+        choiceButtonPanel.add(choice4);
+
+        playerStatsPanel = new JPanel();
+        playerStatsPanel.setBounds(100, 650, 1220, 50);
+        playerStatsPanel.setBackground(Color.RED);
+        playerStatsPanel.setLayout(new GridLayout(1,8));
+        container.add(playerStatsPanel, BorderLayout.PAGE_END);
 
     }
 

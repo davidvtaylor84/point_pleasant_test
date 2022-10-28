@@ -16,6 +16,8 @@ public class Game  extends JFrame{
     JPanel choiceButtonPanel;
     JPanel imagePanel;
     JPanel locationPanel;
+
+    JPanel inventoryPanel;
     JLabel titleNameLabel;
 
     JLabel pictureLabel;
@@ -25,6 +27,7 @@ public class Game  extends JFrame{
     JButton continueButton;
     JTextArea mainTextArea;
     JTextArea locationTextArea;
+
 
     titleScreenHandler titleScreenHandler = new titleScreenHandler();
 
@@ -85,42 +88,45 @@ public class Game  extends JFrame{
         startButtonPanel.setVisible(false);
 
         locationPanel = new JPanel();
-        locationPanel.setBounds(330, 20, 750, 50);
+        locationPanel.setBounds(330, 30, 750, 40);
         locationPanel.setBackground(Color.MAGENTA);
 
-
         locationTextArea = new JTextArea("Town Square");
-        locationTextArea.setBounds(250, 20, 750, 50);
+        locationTextArea.setBounds(250, 30, 750, 40);
         locationTextArea.setBackground(Color.BLACK);
         locationTextArea.setForeground(Color.WHITE);
         locationTextArea.setFont(font2);
         locationPanel.add(locationTextArea);
         container.add(locationPanel, BorderLayout.PAGE_START);
 
-
         mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(330, 550, 750, 100);
+        mainTextPanel.setBounds(330, 550, 750, 130);
         mainTextPanel.setBackground(Color.BLUE);
         container.add(mainTextPanel);
 
-        imagePanel = new JPanel();
-        imagePanel.setBounds(330, 80, 750, 450);
-        imagePanel.setBackground(Color.CYAN);
-        container.add(imagePanel);
-
         mainTextArea = new JTextArea("Here we go baby. This game is going top be awesome my g.");
-        mainTextArea.setBounds(330, 550, 700, 100);
+        mainTextArea.setBounds(330, 550, 700, 130);
         mainTextArea.setBackground(Color.BLACK);
         mainTextArea.setForeground(Color.WHITE);
         mainTextArea.setFont(font2);
         mainTextArea.setLineWrap(true);
         mainTextPanel.add(mainTextArea);
 
+        imagePanel = new JPanel();
+        imagePanel.setBounds(330, 80, 750, 450);
+        imagePanel.setBackground(Color.CYAN);
+        container.add(imagePanel);
+
+        inventoryPanel = new JPanel();
+        container.add(inventoryPanel, BorderLayout.LINE_START);
+        inventoryPanel.setBounds(20, 80, 290, 500);
+        inventoryPanel.setBackground(Color.yellow);
+
         choiceButtonPanel = new JPanel();
         container.add(choiceButtonPanel, BorderLayout.LINE_END);
-        choiceButtonPanel.setBounds(1100, 100, 320, 300);
+        choiceButtonPanel.setBounds(1100, 80, 320, 300);
         choiceButtonPanel.setBackground(Color.RED);
-        container.add(choiceButtonPanel);
+
     }
 
     public class titleScreenHandler implements ActionListener{

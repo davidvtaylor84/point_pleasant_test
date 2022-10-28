@@ -34,14 +34,15 @@ public class Game  extends JFrame{
     JTextArea mainTextArea;
     JTextArea locationTextArea;
 
-    JLabel backgroundImageLabel;
-    JPanel backgroundImagePanel;
+//    Players Stats
+    JLabel healthLabel, healthLabelStat, insightLabel, insightLabelStat, defenceLabel, defenceLabelStat, intelligenceLabel, intelligenceLabelStat, inspirationLabel, inspirationLabelStat;
 
 
     titleScreenHandler titleScreenHandler = new titleScreenHandler();
 
     Font font = new Font("Old Century", Font.PLAIN, 100);
     Font font2 = new Font("Old Centruy", Font.PLAIN, 20);
+    Font font3 = new Font("Old Centruy", Font.PLAIN, 15);
 
     public static void main(String[] args){
         new Game();
@@ -164,8 +165,55 @@ public class Game  extends JFrame{
         playerStatsPanel = new JPanel();
         playerStatsPanel.setBounds(100, 650, 1220, 50);
         playerStatsPanel.setBackground(Color.RED);
-        playerStatsPanel.setLayout(new GridLayout(1,8));
+        playerStatsPanel.setLayout(new GridLayout(1,10));
         container.add(playerStatsPanel, BorderLayout.PAGE_END);
+
+        healthLabel = new JLabel("HP:");
+        healthLabel.setFont(font3);
+        healthLabel.setForeground(Color.WHITE);
+        playerStatsPanel.add(healthLabel);
+        healthLabelStat = new JLabel();
+        healthLabelStat.setFont(font3);
+        healthLabelStat.setForeground(Color.WHITE);
+        playerStatsPanel.add(healthLabelStat);
+
+        insightLabel = new JLabel("INSIGHT:");
+        insightLabel.setFont(font3);
+        insightLabel.setForeground(Color.WHITE);
+        playerStatsPanel.add(insightLabel);
+        insightLabelStat = new JLabel();
+        insightLabelStat.setFont(font3);
+        insightLabelStat.setForeground(Color.WHITE);
+        playerStatsPanel.add(insightLabelStat);
+
+        defenceLabel = new JLabel("DEFENCE:");
+        defenceLabel.setFont(font3);
+        defenceLabel.setForeground(Color.WHITE);
+        playerStatsPanel.add(defenceLabel);
+        defenceLabelStat = new JLabel();
+        defenceLabelStat.setFont(font3);
+        defenceLabelStat.setForeground(Color.WHITE);
+        playerStatsPanel.add(defenceLabelStat);
+
+        intelligenceLabel = new JLabel("INTELLIGENCE:");
+        intelligenceLabel.setFont(font3);
+        intelligenceLabel.setForeground(Color.WHITE);
+        playerStatsPanel.add(intelligenceLabel);
+        intelligenceLabelStat = new JLabel();
+        intelligenceLabelStat.setFont(font3);
+        intelligenceLabelStat.setForeground(Color.WHITE);
+        playerStatsPanel.add(intelligenceLabelStat);
+
+        inspirationLabel = new JLabel("INSPIRATION:");
+        inspirationLabel.setFont(font3);
+        inspirationLabel.setForeground(Color.WHITE);
+        playerStatsPanel.add(inspirationLabel);
+        inspirationLabelStat = new JLabel();
+        inspirationLabelStat.setFont(font3);
+        inspirationLabelStat.setForeground(Color.WHITE);
+        playerStatsPanel.add(inspirationLabelStat);
+
+
 
     }
 

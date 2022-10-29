@@ -1,14 +1,7 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-
-import static javax.swing.SwingConstants.CENTER;
 
 public class Game  extends JFrame{
 
@@ -242,6 +235,8 @@ public class Game  extends JFrame{
 
     }
 
+
+
 //    Listens for the click of start button. Calls createGameScreen
     public class titleScreenHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){createGameScreen();
@@ -251,14 +246,15 @@ public class Game  extends JFrame{
 
 //    call functions like these at the start of each.
     public void enteringTheTown(){
-        String position = "enteringTheTown";
         mainTextArea.setText("You pull in and park in a small spot off the town square. A few people meander around doing early morning errands. There is a stillness that at first hearing seems normal but then you realise that there are no children in this town. A man with a hat is eating chips. What do you do?");
         choice1.setText("Talk to the man");
         choice2.setText("Go to post office");
         choice3.setText("Meet your mother");
         choice4.setText("Kiss a dog on the lips");
         choice5.setText("");
+        locationIdentifier("enteringTheTown");
     }
+
 
 //    set stats labels using these:
 //    label.setText(Integer.toString(intValue));
@@ -267,13 +263,37 @@ public class Game  extends JFrame{
         mainTextArea.setText("Man: What do you want you lunatic?");
     }
 
-//    Listens to button choices
+    public void postOffice(){
+        mainTextArea.setText("You walk into the post office. /nThere is a man in the corner filling out a postcard. An agitated woman behind the desk pacing back and forth declaiming on the things she has seen.");
+        choice1.setText("Ask the woman what is wrong.");
+        choice2.setText("Introduce yourself to the room.");
+        choice3.setText("Buy a postcard.");
+        choice4.setText("Leave the post office.");
+        choice5.setText("");
+    }
+
+//    Put this as a player variable.
+    public void locationIdentifier(String newLocation){
+        String location = newLocation;
+    }
+
+    //    Listens to button choices
     public class ChoiceHandler implements ActionListener{
+
         @Override
         public void actionPerformed(ActionEvent event) {
             String choice = event.getActionCommand();
+            switch (locationIdentifier()){
+                case "enteringTheTown";
+            }
             if(choice.equals("c1")){
                 talkMan();
+            }
+            if(choice.equals("c2")){
+                postOffice();
+            }
+            if(choice.equals("c3")){
+                enteringTheTown();
             }
         }
     }
